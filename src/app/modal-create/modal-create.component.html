@@ -1,0 +1,51 @@
+<style>
+
+.create__form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create__input {
+  border: none;
+  background-color: #f6f4ff;
+  padding: 10px;
+  border-radius: 6px;
+  width: 240px;
+}
+
+.create__btn {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+</style>
+
+<div>
+
+  <h2>Добавить растение</h2>
+
+  <div class="create__form" >
+
+    <input #ctrl="ngModel" required [(ngModel)]="name" class="create__input" type="text" placeholder="Название" >
+    <input #ctrl="ngModel" required [(ngModel)]="description" class="create__input" type="text" placeholder="Описание" >
+    <input #ctrl="ngModel" required [(ngModel)]="image_link" class="create__input" type="text" placeholder="Изображение" >
+
+    <select [(ngModel)]="category" class="create__input" placeholder="Категория" >
+      <option value="Домашние">Домашние</option>
+      <option value="Деревья">Деревья</option>
+      <option value="Садовые">Садовые</option>
+      <option value="Уличные">Уличные</option>
+      <option value="Комнатные">Комнатные</option>
+    </select>
+
+    <input type="number" [(ngModel)]="sun" class="create__input" placeholder="Солнце" >
+    <input type="number" [(ngModel)]="watering" class="create__input" placeholder="Полив" >
+    <input type="number" [(ngModel)]="temperature" class="create__input" placeholder="Температура" >
+
+    <button (click)="create()" class="create__input create__btn" >Добавить</button>
+  </div>
+
+</div>

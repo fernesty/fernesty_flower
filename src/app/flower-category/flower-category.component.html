@@ -1,0 +1,68 @@
+<style>
+
+.categiry__plants {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.category_link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  text-decoration: none;
+  background-color: #f6f4ff;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.category_image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.category_link__text {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.category_link__description {
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+  width: calc(100vw - 135px);
+}
+
+
+</style>
+
+<div>
+  <h2>Категория: <span>{{ active_category }}</span></h2>
+
+
+  <div class="categiry__plants"  >
+    <div *ngFor="let plant of categories_plants" class="categiry__plants" >
+      <a
+        class="category_link"
+        routerLink="/flower/{{plant._id}}" routerLinkActive="active">
+
+        <div *ngIf="plant.images.length > 0" >
+          <img class="category_image" src="{{plant.images[0] ? plant.images[0] : 'https://cdn.shopify.com/s/files/1/0844/3469/products/800-FantastFlower3_Color_2x_7affbb82-3ffc-4255-a83e-a2ba6be85ffb_grande.png?v=1514338131'}}" alt="">
+        </div>
+
+        <div class="category_link__text" >
+          <div class="category_link__description" >{{ plant.name }}</div>
+          <div class="category_link__description" *ngIf="plant.description" >{{ plant.description }}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,42 @@
+<style>
+
+.flower_name {
+  margin-left: 25px;
+}
+
+.flower_images {
+  display: flex;
+}
+
+.image {
+  width: 300px;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-left: 25px;
+}
+
+</style>
+
+
+<div>
+  <h2 class="flower_name" > {{ plant.name }} </h2>
+
+  <div *ngIf="plant.images.length > 0" >
+    <div class="flower_images" *ngFor="let image of plant.images" >
+      <img class="image" src="{{image}}" alt="Image">
+    </div>
+  </div>
+
+  <ul>
+    <li> category: {{ plant.category }}</li>
+    <li> description: {{ plant.description }}</li>
+  </ul>
+
+
+  <ul>
+    <li> sunlight: {{ plant.sunlight }} </li>
+    <li> temperature: {{ plant.temperature }} </li>
+    <li> watering: {{ plant.watering }} </li>
+    <li> _id: {{ plant._id }} </li>
+  </ul>
+</div>

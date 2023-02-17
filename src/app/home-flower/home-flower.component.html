@@ -1,0 +1,32 @@
+<style>
+
+.category_links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.category_link {
+  /* text-decoration: none; */
+  color: #1a192c;
+}
+
+</style>
+
+
+<div>
+  <h2>Категории</h2>
+
+  <div class="category_links" >
+
+
+    <div *ngFor="let plant of categories_plants" >
+      <a
+        class="category_link"
+        routerLink="category/{{plant}}" routerLinkActive="active">
+        {{ plant }}
+      </a>
+    </div>
+
+  </div>
+</div>
